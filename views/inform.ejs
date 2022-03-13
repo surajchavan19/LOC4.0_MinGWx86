@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="home.css">
+
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style media="screen">
+      body{
+        font-style: Times;
+      }
+      img{
+
+      }
+      .center1{
+        width:400px !important;
+        height: auto;
+      }
+      .center2{
+        width:400px !important;
+        height: auto;
+      }
+      body{
+  margin: 0;
+  padding:0;
+}
+
+
+
+
+
+/* div.polaroid1 {
+  margin-left: 5%;
+  width: 90%;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+} */
+div.polaroid2 {
+
+  margin-top:5%;
+  margin-bottom:5%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-bottom: 5%;
+
+
+}
+img{
+  padding:  5% !important;
+  /* padding-right: 5% !important; */
+
+}
+hr{
+  padding: 0;
+  margin:0;
+}
+
+
+h2{
+  text-align: center;
+}
+p{
+  text-align: justify;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+
+}
+h6{
+  margin-left: 24%;
+}
+
+    </style>
+  </head>
+  <body>
+
+    <script>
+			// Function to get the Selected Text
+			function getSelectedText() {
+				var selectedText = '';
+
+				// window.getSelection
+				if (window.getSelection) {
+					selectedText = window.getSelection();
+				}
+				// document.getSelection
+				else if (document.getSelection) {
+					selectedText = document.getSelection();
+				}
+				// document.selection
+				else if (document.selection) {
+					selectedText =
+					document.selection.createRange().text;
+				} else return;
+				// To write the selected text into the textarea
+				document.testform.selectedtext.value = selectedText;
+			}
+		</script>
+   
+
+
+<section>
+  <div class="heading" >
+    <h1 style="text-align: center;" onmouseup="getSelectedText()">Our features</h1>
+  </div>
+
+
+
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1">
+
+    </div>
+    <div class="col-sm-6">
+      <div class="row polaroid2">
+        <p></p><br>
+      <h2 onmouseup="getSelectedText()">About the fundraiser</h2>
+      <hr>
+      <!-- <h4 style="margin-left:3%"></h4> -->
+      <h3 onmouseup="getSelectedText()"style="margin-left:3%"><%=item.Tagline%></h3>
+      <img src="data:item/<%=item.hospitalimage.contentType%>;base64,  <%=item.hospitalimage.data.toString('base64')%>">
+      <p onmouseup="getSelectedText()"> <%=item.About%></p>
+       <p></p>
+
+
+
+
+
+         <div class="container">
+           <a class="btn btn-primary" style="background-color: #55acee;width: 210px;height:50px;padding-top:11px;margin-left:3%;" href="#!" role="button" ><i class="fa fa-twitter me-2"></i>Twitter</a>
+           <a class="btn btn-primary" style="background-color: green;width: 210px;height:50px;padding-top:11px;" href="#!" role="button" ><i class="fa fa-whatsapp me-2"></i>Whatsapp</a>
+           <a class="btn btn-primary" style="background-color: blue;width: 210px;height:50px;padding-top:11px;" href="#!" role="button" ><i class="fa fa-facebook me-2"></i>Facebook</a>
+         </div>
+         <p></p>
+
+
+      </div>
+      <div class="row polaroid2" >
+        <p></p><br>
+      <h2 onmouseup="getSelectedText()">Bank details</h2>
+
+      <hr>
+      <h5 onmouseup="getSelectedText()">Transfer directly to the Bank account of this Fundraiser. Only INR transfers are allowed.</h5>
+
+      <div class="container-fluid" style="text-align:justify;background:rgb(235,235,235)">
+        <hr>
+        <h6 onmouseup="getSelectedText()">Virtual A/C No :<%=item.Bank.Account%></h6>
+        <h6 onmouseup="getSelectedText()"Virtual A/C Name : <%=item.Bank.Name%></h6>
+        <h6 onmouseup="getSelectedText()">Bank Name : <%=item.Bank.BankName%></h6>
+        <h6 onmouseup="getSelectedText()">Branch : <%=item.Bank.Branch%></h6>
+        <h6 onmouseup="getSelectedText()">IFSC :<%=item.Bank.IFSCCode%></h6>
+         <hr>
+      </div>
+
+
+
+      </div>
+
+    </div>
+    <div class="col-sm-1">
+
+    </div>
+    <div class="col-sm-3" style="margin-top: 1%;">
+      <div class="row polaroid2" style="padding-top: 7%;text-align:center;">
+        <form action="/payment" method="POST">
+            <input type="hidden" name="id" value="<%=item._id%>">
+        <input type="Number" name="amount" id="">
+            <script 
+            
+               src="//checkout.stripe.com/v2/checkout.js"
+               class="stripe-button"
+               data-key="<%= Publishable_Key %>"
+               data-amount="<input type="text" name="amount" value="<%=item.Amount%>">"
+               data-currency="inr"
+               data-name="<%=item.Name%>"
+               data-description="<%=item.Tagline%>"
+               data-locale="auto" >
+             </script>
+         </form>
+
+      </div>
+      <div class="row polaroid2" style="padding-top: 7%;text-align:center;">
+          <h5 onmouseup="getSelectedText()">Name: <%=item.Ngo_name%></h5>
+          <h5 onmouseup="getSelectedText()">Phone: <%=item.Phone%></h5>
+          <h5 onmouseup="getSelectedText()">Email: <%=item.Email%></h5>
+
+      </div>
+      <div class="row polaroid2" style="padding-top: 7%;text-align:center;">
+        <button id='btnSpeak'>Speak!</button>
+      </div>
+      <div class="row polaroid2" style="padding-top: 7%;text-align:center;">
+          <h1 onmouseup="getSelectedText()">Total Goal  : <%=item.Goal%></h1>
+      </div>
+      <div class="row polaroid2" style="padding-top: 7%;text-align:center;">
+          <h1 onmouseup="getSelectedText()">Goal Achieved: <%=item.Raised%></h1>
+      </div>
+
+    </div>
+    <div class="col-sm-1">
+
+
+
+    </div>
+  </div>
+
+</div>
+
+
+
+</section>
+  <div class="hid" style="visibility: hidden;">
+   Select Voice: <select id='voiceList'></select> <br><br>
+<form name="testform">
+			<textarea name="selectedtext"
+					rows="5"
+					cols="20" id='txtInput' type="hidden"></textarea>
+		</form>
+  </div>
+       
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+ 
+</body>
+<script>
+  var txtInput = document.querySelector('#txtInput');
+  var voiceList = document.querySelector('#voiceList');
+  var btnSpeak = document.querySelector('#btnSpeak');
+  var synth = window.speechSynthesis;
+  var voices = [];
+
+  PopulateVoices();
+  if(speechSynthesis !== undefined){
+      speechSynthesis.onvoiceschanged = PopulateVoices;
+  }
+
+  btnSpeak.addEventListener('click', ()=> {
+      var toSpeak = new SpeechSynthesisUtterance(txtInput.value);
+      var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+      voices.forEach((voice)=>{
+          if(voice.name === selectedVoiceName){
+              toSpeak.voice = voice;
+          }
+      });
+      synth.speak(toSpeak);
+  });
+
+  function PopulateVoices(){
+      voices = synth.getVoices();
+      var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
+      voiceList.innerHTML = '';
+      voices.forEach((voice)=>{
+          var listItem = document.createElement('option');
+          listItem.textContent = voice.name;
+          listItem.setAttribute('data-lang', voice.lang);
+          listItem.setAttribute('data-name', voice.name);
+          voiceList.appendChild(listItem);
+      });
+
+      voiceList.selectedIndex = selectedIndex;
+  }
+</script>
+</html>

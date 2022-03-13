@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+ 
+
+    <form action="/Register" method="POST" enctype="multipart/form-data">
+ <label>Tagline</label>
+<input type="text" name="Tagline">
+<label>About</label>
+<input type="text" name="About">
+<label >Goal</label>
+<input type="Number" name="Goal">
+<label >Bank Details</label>
+<h3>Account Holder Name</h3>
+<input type="text" name="Name">
+<h3>Account number</h3>
+<input type="Number" name="Account">
+<h3>IFSC Code</h3>
+<input type="text" name="IFSCCode">
+<h3>Bankname</h3>
+<input type="text" name="BankName">
+<h3>Branch</h3>
+<input type="text" name="Branch" >
+
+<label for="">Phone</label>
+<input type="Number" name="Phone">
+<label for="">email</label>
+<input type="text" name="Email">
+
+<label for="">Image of patient (IF any)</label> 
+<input type="file" id="image" name="image" value="" required>
+<!-- <input type="file" id="image" name="image" value="" required> -->
+<button type="submit">Submit</button>
+<
+
+
+
+    </form>
+    <form action="/notify" method="post">
+        <button type="submit">send</button>
+    </form>
+</body>
+</html>

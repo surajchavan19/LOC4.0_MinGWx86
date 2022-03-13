@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <style media="screen">
+      hr{
+        padding:0;
+        margin:0;
+      }
+      #topfund{
+        padding-top: 3%;
+        padding-bottom: 5%;
+        padding-left: 15%;
+        padding-right: 15%;
+
+      }
+      /* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 30%;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 2%;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+h6{
+  color: rgb(233,12,12);
+  padding-left: 5%;
+  padding-top: 5%;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* background-color: rgb(234,245,254); */
+  padding: 10px;
+  grid-gap: 1rem;
+
+}
+
+.grid-item {
+  background-color: rgb(252, 224, 224);
+
+  text-align: justify;
+
+  font-weight: bolder;
+  padding: 20px;
+  font-size: 17px;
+
+  line-height: 1.2;
+}
+
+
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="/video" style="color: #0051ed; font-weight: bold; ">Courses</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" style="margin-left: 4vw; margin-top: 1.5vh; ">
+              <a class="navbar-brand" href="https://surajchavan19.github.io/Mentify/" style="color: rgb(233,12,12); font-weight: bold; ">Donate</a>
+            </li>
+
+            <li class="nav-item  ml-auto" style="margin-left: 35vw;margin-top: 1.5vh;  ">
+            <img src="image/givro.png" alt="" style="width:90px;">
+
+            </li>
+          >
+              <li class="nav-item  ml-auto" style="margin-top: 1vh; font-weight: bold;">
+                <a class="nav-link " href="http://localhost:800/" style="margin-left: 25vw; color: rgb(233,12,12);font-weight: bold;" class="gradient-border" >Chat</a>
+              </li>
+              <li class="nav-item ml-auto" style="margin-top: 1vh; font-weight: bold;">
+                <a class="nav-link" href="/event" style="color: rgb(233,12,12);font-weight: bold;" class="gradient-border" >Events</a>
+              </li>
+              <li class="nav-item ml-auto" style="margin-top: 1vh; font-weight: bold;">
+                <a class="nav-link" href="/maps" style="color: rgb(233,12,12);font-weight: bold;" class="gradient-border">Nearby Ngo </a>
+              </li
+             
+          </ul>
+          <span class="navbar-text">
+
+          </span>
+        </div>
+      </div>
+    </nav>
+    <hr>
+    <section id="first">
+      <div class="container-fluid">
+
+<div class="row" style="background:rgb(248,248,248);height: 57vh">
+ <div class="col-sm-6" style="margin-top:10%;padding-left:5%;">
+   <h1>Fundraising for the people and charities you care about</h1>
+   <p>Get help. Give kindness. Start in just 5 minutes.</p>
+   <a href="/donate">
+   <button type="button" class="btn " style="background-color:rgb(233,12,12); color:white">Donate</button>
+</a>
+</div>
+ <div class="col-sm-6">
+  <img src="image/donate.png" alt="" style="width:850px;margin-left:-25%;">
+ </div>
+</div>
+
+
+      </div>
+
+    </section>
+
+    <section id="topfund" >
+      <h1 style="margin-top:2%;margin-bottom:2%;">Top Donation</h1>
+
+
+
+      <div class="row">
+        <% data.forEach(item=>{ %>
+   <div class="column">
+     <div class="container-fluid" style="padding-left:0; padding-right:0;">
+       <img src="https://images.pexels.com/photos/1098769/pexels-photo-1098769.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" style="width:100%;">
+       <h6><%=item.Tagline%></h6>
+       <p style="padding-left: 6%;padding-right: 6%;text-align: justify"><%=item.About%></p>
+        <form action="/next" method="post">
+            <input type="hidden" value="<%=item._id%>" name="id">
+       <button type="submit" class="btn " style="background-color:rgb(233,12,12); color:white;width:100%;">Read More</button>
+    </form>
+    </div>
+   </div>
+   <%  }) %>
+ </section>
+
+ <section id="carousel" style="background:rgb(200,200,200);padding-top:5%;padding-bottom:5%">
+    <div class="container">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner">
+ <div class="carousel-item active">
+   <div class="container">
+<div class="row">
+ <div class="col" style="padding-left:14%;padding-top:9%">
+ <h5 >Fundraising Story</h5>
+ <h2>Meet Pullu</h2>
+ <p>"My life has changed forever because of Norma and what happened. It gave me hope again. Changing someone's life will change your own forever."</p>
+ <p></p>
+ <p>Ashley raised $7k to help homeless people in her community.</p>
+ </div>
+ <div class="col">
+   <img src="https://images.pexels.com/photos/7385909/pexels-photo-7385909.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=300" alt="">
+ </div>
+</div>
+</div>
+ </div>
+ <div class="carousel-item">
+   <div class="container">
+<div class="row">
+ <div class="col">
+   <div class="col" style="padding-left:24%;padding-top:20%">
+   <h5 >Fundraising Story</h5>
+   <h2>Meet Pullu</h2>
+   <p>"My life has changed forever because of Norma and what happened. It gave me hope again. Changing someone's life will change your own forever."</p>
+   <p></p>
+   <p>Ashley raised $7k to help homeless people in her community.</p>
+   </div>
+ </div>
+ <div class="col">
+   <img src="https://images.pexels.com/photos/7485046/pexels-photo-7485046.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=300" alt="">
+ </div>
+</div>
+</div>
+ </div>
+ <div class="carousel-item">
+   <div class="container">
+<div class="row">
+ <div class="col">
+   <div class="col" style="padding-left:24%;padding-top:20%">
+   <h5 >Fundraising Story</h5>
+   <h2>Meet Pullu</h2>
+   <p>"My life has changed forever because of Norma and what happened. It gave me hope again. Changing someone's life will change your own forever."</p>
+   <p></p>
+   <p>Ashley raised $7k to help homeless people in her community.</p>
+   </div>
+ </div>
+ <div class="col">
+   <img src="https://images.pexels.com/photos/4552234/pexels-photo-4552234.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=300" alt="">
+ </div>
+</div>
+</div>
+ </div>
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" style="color:rgb(233,12,12)">
+ <span class="carousel-control-prev-icon" aria-hidden="true" style="color:rgb(233,12,12)"></span>
+ <span class="visually-hidden" style="color:rgb(233,12,12)">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" style="color:rgb(233,12,12)">
+ <span class="carousel-control-next-icon" aria-hidden="true" style="color:rgb(233,12,12)"></span>
+ <span class="visually-hidden" style="color:rgb(233,12,12)">Next</span>
+</button>
+</div>
+   </div>
+
+ </section>
+    <section>
+      <img src="image/features.png" alt="" style="width: 1000px;margin-left: 15%;margin-top: 5%;margin-bottom: 5%;">
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings = 
+            {"appId":"798f65c7a39819ebb724ac1d45f59b9d","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>
+
+  </body>
+</html>
